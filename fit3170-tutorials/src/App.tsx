@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
+export const multiply = (a: number, b: number): number => a * b;
+export const subtract = (a: number, b: number): number => a - b;
+
 function App() {
   const [numA, setNumA] = useState<number>(0)
   const [numB, setNumB] = useState<number>(0)
   const [result, setResult] = useState<number | null>(null)
-
-  const multiply = () => setResult(numA * numB)
-  const subtract = () => setResult(numA - numB)
 
   return (
     <div className="min-h-screen bg-blue-500 flex items-center justify-center">
@@ -27,10 +27,10 @@ function App() {
         />
 
         <div className="flex gap-4">
-          <button onClick={multiply} className="btn bg-blue-500 text-white px-6 py-3 rounded-full font-bold">
+          <button onClick={() => setResult(multiply(numA, numB))} className="btn bg-blue-500 text-white px-6 py-3 rounded-full font-bold">
             Multiply ×
           </button>
-          <button onClick={subtract} className="btn bg-pink-500 text-white px-6 py-3 rounded-full font-bold">
+          <button onClick={() => setResult(subtract(numA, numB))} className="btn bg-pink-500 text-white px-6 py-3 rounded-full font-bold">
             Subtract −
           </button>
         </div>
